@@ -1,0 +1,16 @@
+FROM ubuntu:18.04
+
+RUN apt-get update && apt-get install -y firefox
+
+# Replace 1000 with your user / group id
+# otherwise you will get: "error: XDG_RUNTIME_DIR not set in the environment.""
+RUN export uid=1001 gid=1001 && \
+    mkdir -p /home/developer && \
+    echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \
+    echo "developer:x:${uid}:" >> /etc/group && \
+    echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
+    chown ${uid}:${gid} -R /home/developer
+
+USER developer
+ENV HOME /home/developer
+CMD /usr/bin/firefox

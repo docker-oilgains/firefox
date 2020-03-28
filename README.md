@@ -1,10 +1,10 @@
-# README
+# Run Firefox from a Docker container
 
 [toc]
 
+## Original sources
 
-
-Source: https://stackoverflow.com/a/28971413/5270873
+SO: https://stackoverflow.com/a/28971413/5270873
 
 Article: http://fabiorehm.com/blog/2014/09/11/running-gui-apps-with-docker/
 
@@ -88,6 +88,8 @@ docker run -ti --rm \
 ```
 
 from comments in article: http://disq.us/p/18d8cuj
+
+
 
 ### Unsuccessful Debian-9 and Firefox
 
